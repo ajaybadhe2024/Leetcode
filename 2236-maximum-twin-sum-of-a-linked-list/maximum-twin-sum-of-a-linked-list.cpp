@@ -11,11 +11,10 @@
 class Solution {
 public:
     int pairSum(ListNode* head) {
-        vector<int> v;
-        ListNode* curr=head;
-        while(curr!=NULL){
-            v.push_back(curr->val);
-            curr=curr->next;
+        vector<int>v;
+        while(head!=NULL){
+            v.push_back(head->val);
+            head=head->next;
         }
 
         int i=0;
@@ -27,8 +26,8 @@ public:
             maxsum=max(maxsum,sum);
             i++;
             j--;
-            
         }
         return maxsum;
+        
     }
 };
