@@ -20,14 +20,14 @@ public:
         ListNode* prev=NULL;
         ListNode* slow=head;
         ListNode* fast=head;
-        while(fast!=NULL && fast->next!=NULL){
+        while(fast!=NULL&&fast->next!=NULL){
             prev=slow;
             slow=slow->next;
             fast=fast->next->next;
+
         }
         prev->next=slow->next;
         delete slow;
-
         return head;
     }
 };
