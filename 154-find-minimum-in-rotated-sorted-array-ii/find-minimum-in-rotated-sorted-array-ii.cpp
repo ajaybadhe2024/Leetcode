@@ -1,37 +1,23 @@
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int l = 0;
-        int r = nums.size() - 1;
-
-        int resultIdx = 0;
-
-        while(l <= r) {
-
-            // remove duplicates from left
-            while(l < r && nums[l] == nums[l + 1])
-                l++;
-
-            // remove duplicates from right
-            while(l < r && nums[r] == nums[r - 1])
-                r--;
-
-            int mid = l + (r - l) / 2;
-
-            // update answer
-            if(nums[mid] < nums[resultIdx])
-                resultIdx = mid;
-
-            // minimum lies on right side
-            if(nums[mid] > nums[r]) {
-                l = mid + 1;
-            }
-            // minimum can be on left side
-            else {
-                r = mid - 1;
+       
+        int l=0;
+        int r=nums.size()-1;
+         int resultInd=0;
+        while(l<=r){
+           
+            int mid=l+(r-l);
+            while(l<r&&nums[l]==nums[l+1])l++;
+            while(r>l&&nums[r]==nums[r-1])r--;
+            if(nums[mid]<nums[resultInd]){
+                resultInd=mid;
+            }else if(nums[mid]>nums[r]){
+                l=mid+1;
+            }else{
+                r=mid-1;
             }
         }
-
-        return nums[resultIdx];
+        return nums[resultInd];
     }
 };
